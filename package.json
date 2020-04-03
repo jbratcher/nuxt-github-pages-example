@@ -10,6 +10,10 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
+    "build:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt build",
+    "generate:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt generate",
+    "deploy": "git push origin gh-pages",
+    "deploy:gh-pages": "npm run build:gh-pages && npm run generate:gh-pages && git add . && git commit -m \"deploy\" && npm run deploy"
   },
   "dependencies": {
     "nuxt": "^2.0.0",
