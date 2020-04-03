@@ -7,13 +7,6 @@ const routerBase =
       }
     : {}
 
-const ghPagesMode =
-  process.env.DEPLOY_ENV === 'GH_PAGES'
-    ? {
-        mode: 'spa'
-      }
-    : {}
-
 export default {
   mode: 'universal',
   /*
@@ -73,6 +66,8 @@ export default {
      */
     extend(config, ctx) {}
   },
-  ...routerBase,
-  ...ghPagesMode
+  generate: {
+    fallback: true
+  },
+  ...routerBase
 }
